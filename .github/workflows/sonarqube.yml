@@ -32,6 +32,11 @@ jobs:
 
       - name: Build project
         run: mvn clean verify
+        
+      - name: Check Sonar URL
+        run: |
+          echo "SONAR_HOST_URL from vars = '${{ vars.SONAR_HOST_URL }}'"
+          curl -I "${{ vars.SONAR_HOST_URL }}"
 
       - name: SonarQube Scan for branch
         if: github.event_name != 'pull_request'
@@ -43,6 +48,8 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
+
+
 
       - name: SonarQube Scan for pull request
         if: github.event_name == 'pull_request'

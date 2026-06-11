@@ -51,8 +51,12 @@ public class JobController {
 	{
 		JobParameters jobParameter=new JobParametersBuilder()
 				.addLong("startAt"	, System.currentTimeMillis()).toJobParameters();
-		
+				System.out.println("INside controller test");
+		 
+
+				
 		try {
+			
 			jobLauncher.run(employeeBatchConfig.runJob(), jobParameter);
 		} catch (JobExecutionAlreadyRunningException | JobRestartException | JobInstanceAlreadyCompleteException
 				| JobParametersInvalidException e) {

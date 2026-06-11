@@ -50,7 +50,6 @@ jobs:
           SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
 
 
-
       - name: SonarQube Scan for pull request
         if: github.event_name == 'pull_request'
         uses: SonarSource/sonarqube-scan-action@v8.2.0

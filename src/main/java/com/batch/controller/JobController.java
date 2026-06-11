@@ -54,6 +54,7 @@ public class JobController {
 				System.out.println("INside controller test");
 		 
 		try {
+			
 			jobLauncher.run(employeeBatchConfig.runJob(), jobParameter);
 		} catch (JobExecutionAlreadyRunningException | JobRestartException | JobInstanceAlreadyCompleteException
 				| JobParametersInvalidException e) {
